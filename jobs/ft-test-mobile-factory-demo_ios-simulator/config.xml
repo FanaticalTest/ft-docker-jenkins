@@ -48,10 +48,22 @@
       <useWorkspaceAsHome>false</useWorkspaceAsHome>
       <wrapperLocation></wrapperLocation>
       <passAllAsSystemProperties>false</passAllAsSystemProperties>
-      <projectProperties></projectProperties>
+      <projectProperties>device=IosSimulator
+</projectProperties>
       <passAllAsProjectProperties>false</passAllAsProjectProperties>
     </hudson.plugins.gradle.Gradle>
   </builders>
   <publishers/>
-  <buildWrappers/>
+  <buildWrappers>
+    <EnvInjectBuildWrapper plugin="envinject@2.1.5">
+      <info>
+        <propertiesContent>APPIUM_SERVER_URL=http://docker.for.mac.localhost:4723/wd/hub</propertiesContent>
+        <secureGroovyScript plugin="script-security@1.39">
+          <script></script>
+          <sandbox>false</sandbox>
+        </secureGroovyScript>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
+  </buildWrappers>
 </project>
